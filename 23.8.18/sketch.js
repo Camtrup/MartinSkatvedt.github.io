@@ -1,7 +1,7 @@
 
 
 function buttonClick() {
-  fetch("https://cors-anywhere.herokuapp.com/http://worldclockapi.com/api/json/utc/now")
+  fetch("https://cors-anywhere.herokuapp.com/http://worldclockapi.com/api/json/utc/now", {'mode': 'no-cors'})
   .then(response => response.json())
   .then(function(myJson) {
     let text = myJson.dayOfTheWeek;
