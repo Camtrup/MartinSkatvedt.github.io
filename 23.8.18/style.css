@@ -1,0 +1,15 @@
+
+
+
+h1, li, a, p {
+  color: white;
+  font-family: "Comic Sans MS";
+  text-decoration: none
+
+}
+
+html {
+  background-image: url("https://media0.giphy.com/media/3o6gEgkb5xqAyMw5Og/giphy.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

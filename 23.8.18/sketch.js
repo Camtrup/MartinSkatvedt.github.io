@@ -8,4 +8,5 @@ function buttonClick() {
     console.log(`Today is: ${text}`);
     document.getElementById('para').innerText = text;
   });
+
 }
