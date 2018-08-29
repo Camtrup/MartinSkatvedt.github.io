@@ -8,13 +8,16 @@ function sumbitClick() {
   let høyde = document.getElementById("h").value
   let bredde = document.getElementById("b").value
 
+
   arial = kalkArial(høyde, bredde);
   omkrets = kalkOmkrets(høyde, bredde);
 
-  console.log(arial);
-  console.log(omkrets);
-
-  alert(`Arialet er ${arial}, og omkretsen er ${omkrets}`);
+  if(isNaN(omkrets) || isNaN(bredde)) {
+    alert("Data må kun være tall!")
+  }
+  else {
+    alert(`Arialet er ${arial}, og omkretsen er ${omkrets}`);
+  }
 }
 
 function kalkArial(høyde, bredde) {

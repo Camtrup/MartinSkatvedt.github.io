@@ -1,0 +1,24 @@
+
+
+html {
+  font-family: "Comic Sans MS";
+  padding-left: 10px;
+  background-image: url(https://i.imgur.com/5Wk8m79.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+button {
+  font-family: "Comic Sans MS";
+  background-color: #cce0ff;
+  color: black;
+  font-size: 16px;
+}
+
+input {
+  background-color: white;
+  color: black;
+  font-size: 16px;
+  border: 2px solid black;
+}
