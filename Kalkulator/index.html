@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title> Kalkulator </title>
+  </head>
+
+  <body>
+    <input id="inpTall1" placeholder="Skriv inn ditt tall">
+    <br>
+    <input id="inpTall2" placeholder="Skriv inn ditt tall">
+
+    <h2 id="spnResultat"> </h2>
+
+    <button onclick="minusClick()"> - </button>
+    <button onclick="plusClick()"> + </button>
+
+
+    <script>
+
+      let inp1Tall = document.getElementById("inpTall1");
+      let inp2Tall = document.getElementById("inpTall2");
+      let spnResultat = document.getElementById("spnResultat");
+      let btn = document.getElementById("btn");
+
+      function plusClick() {
+        let res = (Number(inp1Tall.value) + Number(inp2Tall.value));
+        spnResultat.innerHTML = `Svaret er ${res} `;
+      }
+
+      function minusClick() {
+        let res = (Number(inp1Tall.value) - Number(inp2Tall.value))
+        spnResultat.innerHTML = `Svaret er ${res} `;
+      }
+
+    </script>
+  </body>
+</html>
