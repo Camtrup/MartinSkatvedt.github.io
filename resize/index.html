@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta>
+    <title>Reisze Site</title>
+
+    <style>
+    body {
+      margin-left: 0px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+    </style>
+  </head>
+  <body>
+    <img src="bilde.jpg" id="bilde1">
+
+    <script>
+      let bilde1 = document.getElementById("bilde1");
+      bilde1.style.width = window.innerWidth + "px";
+      bilde1.style.height = window.innerHeight + "px";
+
+      window.onresize = () => {
+        console.log(window.innerWidth);
+        bilde1.style.width = window.innerWidth + "px";
+        bilde1.style.height = window.innerHeight + "px";
+      }
+
+    </script>
+  </body>
+</html>
