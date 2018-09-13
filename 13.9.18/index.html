@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>13.9.18</title>
+  </head>
+
+  <body>
+
+    <input type="text" placeholder="Skriv inn Filmer" id="imp">
+    <button onclick="buttonClick()"> Trykk på meg eller trykk på enter</button>
+    <div id="output"> </div>
+
+
+    <script>
+      let input = document.getElementById("imp");
+      let output = document.getElementById("output");
+      let filmListe = [];
+
+
+      input.onkeyup = (key) => {
+        if (key.keyCode === 13) {
+          buttonClick();
+        }
+      }
+
+      function buttonClick() {
+        filmListe.push(input.value);
+        input.value = "";
+        output.innerText = filmListe.map(x => " " + x);
+      }
+
+
+
+
+    </script>
+
+  </body>
+
+</html>

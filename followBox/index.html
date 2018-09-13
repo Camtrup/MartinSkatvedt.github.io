@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <style>
+      body {
+        cursor: none;
+      }
+      #box {
+        background-color: blue;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+      }
+    </style>
+
+  <title>Firkant følger musen</title>
+
+  </head>
+
+  <body>
+    <div id="box"> </div>
+
+    <script>
+      let box = document.getElementById("box");
+      let x = [];
+      let y = [];
+      document.onmousemove = () => {
+        x[0] = event.clientX;
+        y[0] = event.clientY;
+        box.style.left = x[0] - 25 + "px";
+        box.style.top = y[0] - 25 + "px";
+
+        let mapX = x.map(x => (x/window.innerWidth) * 255);
+        let mapY = y.map(y => (y/window.innerHeight) * 255);
+
+        document.body.style.backgroundColor = "#" + getAll(mapX[0], mapY[0], 255);
+      }
+
+      function getHex(numb) {
+        let val = Number(Math.floor(numb)).toString(16);
+        return val;
+      }
+
+      function getAll(r, g, b) {
+        let R = getHex(r);
+        let G = getHex(g);
+        let B = getHex(b);
+        return R+G+B;
+      }
+    </script>
+
+  </body>
+
+</html>
