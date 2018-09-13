@@ -2,21 +2,30 @@
 <html>
 
   <head>
+    <style>
+      body {
+        background-image: url("http://www.hr-fernsehen.de/sendungen-a-z/hallo-hessen/aktionen/wetter-bilder_lydia_gierhardt_gedern-100~_t-1504273413628_v-16to9.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    </style>
+
     <title>13.9.18</title>
   </head>
 
   <body>
-
     <input type="text" placeholder="Skriv inn Filmer" id="imp">
     <button onclick="buttonClick()"> Trykk på meg eller trykk på enter</button>
-    <div id="output"> </div>
-
+    <button id="picBtn"> Endre bakgrunn</button>
+    <p id="output"> </p>
+    <p id="songOut"> </p>
 
     <script>
       let input = document.getElementById("imp");
+      let picBtn = document.getElementById("picBtn");
       let output = document.getElementById("output");
+      let songOut = document.getElementById("songOut");
       let filmListe = [];
-
 
       input.onkeyup = (key) => {
         if (key.keyCode === 13) {
@@ -25,16 +34,43 @@
       }
 
       function buttonClick() {
-        filmListe.push(input.value);
-        input.value = "";
-        output.innerText = filmListe.map(x => " " + x);
+        if (input.value != "") {
+          filmListe.push(input.value);
+          input.value = "";
+          output.innerText = filmListe.map(x => " " + x);
+          }
       }
 
+      let sang1 = {
+        artist: "Pink Floyd",
+        tittel: "Mother"
+      }
 
+      let sang2 = {
+        artist: "David Bowie",
+        tittel: "Heroes"
+      }
+
+      let sang3 = {
+        artist: "MGMT",
+        tittel: "Me and Michael"
+      }
+
+      songOut.innerText = sang2.tittel;
+      sang1.tittel = "Comfortably Numb";
+
+      let bilder = ["http://klingwall.no/wp-content/uploads/2015/06/H_portrett_Baby_5.jpg",
+       "http://www.hr-fernsehen.de/sendungen-a-z/hallo-hessen/aktionen/wetter-bilder_lydia_gierhardt_gedern-100~_t-1504273413628_v-16to9.jpg",
+       "https://images.photowall.com/products/46142/elephant-road.jpg?h=380&q=75",
+       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTisH25WGjR4vPjlK7q542-OFZx_t4q-RkMvU54_oIwFEiaovYp",
+       "https://cdn.images.express.co.uk/img/dynamic/151/590x/Hawaii-volcano-pictures-956570.jpg",
+       "https://i.kym-cdn.com/entries/icons/mobile/000/025/734/7GXG21i.jpg"
+     ];
+
+      picBtn.onclick = () => document.body.style.backgroundImage = `url(${bilder[Math.floor(Math.random() * bilder.length)]})`;
 
 
     </script>
-
   </body>
 
 </html>
