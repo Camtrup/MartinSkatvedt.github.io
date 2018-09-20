@@ -1,0 +1,20 @@
+
+body {
+  margin-left: 0px;
+}
+#bakke {
+  margin-left: 0px;
+  height: 200px;
+  width: 1300px;
+  position: absolute;
+  top: 510px;
+  background-color: black;
+}
+
+#player {
+  height: 50px;
+  width: 20px;
+  background-color: red;
+  position: absolute;
+  transition: 0.3s;
+}
