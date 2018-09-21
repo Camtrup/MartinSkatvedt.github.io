@@ -37,14 +37,14 @@
   <body>
 
     <ul id="applist">
-      <li> <a href="/biletter/index.html"> Kjøp Biletter</a> </li>
-      <li> <a href="/testKunnskaper/index.html"> Test Kunnskaper</a> </li>
+      <li> <a href="./biletter/"> Kjøp Biletter</a> </li>
+      <li> <a href="./testKunnskaper/"> Test Kunnskaper</a> </li>
     </ul>
 
     <div id="ikoner">
-      <img src="/bilder/info.jpg" width="50" id="info"/>
-      <img src="/bilder/priser.jpg" width="50" id="pris"/>
-      <img src="/bilder/aapningstider.jpg" width="50" id="apning"/>
+      <img src="./bilder/info.jpg" width="50" id="info"/>
+      <img src="./bilder/priser.jpg" width="50" id="pris"/>
+      <img src="./bilder/aapningstider.jpg" width="50" id="apning"/>
     </div>
     <div id="popup">
       <h1 id="popupTitle"></h1>
@@ -52,7 +52,7 @@
       <p id="p2"> </p>
       <p id="p3"> </p>
     </div>
-    <img src="/bilder/1.jpg" id="bakgrunn"/>
+    <img src="./bilder/1.jpg" id="bakgrunn"/>
     <br>
     <div id="knapper">
       <button type="button" id="venstre"> <- </button>
@@ -71,7 +71,7 @@
       const p1 = document.getElementById("p1");
       const p2 = document.getElementById("p2");
       const p3 = document.getElementById("p3");
-      const bilder = ["/bilder/1.jpg", "/bilder/2.jpg", "/bilder/3.jpg", "/bilder/4.jpg"]
+      const bilder = ["./bilder/1.jpg", "./bilder/2.jpg", "./bilder/3.jpg", "./bilder/4.jpg"]
       let index = 1;
 
       let tap = "Tirsdag – søndag 11.00-16.00"
