@@ -1,13 +1,12 @@
 
 
-h1, li, a, p {
+h1, p, a {
   color: white;
   font-family: "Comic Sans MS";
-  text-decoration: none
-
+  text-decoration: none;
 }
 
-html {
+body {
   background-image: url("https://i.giphy.com/media/sIIhZliB2McAo/giphy.webp");
   background-repeat: no-repeat;
   background-size: cover;
@@ -17,4 +16,16 @@ html {
 #list {
   text-align: center;
   display: inline-block;
+  color: white;
+  font-family: "Comic Sans MS";
+}
+
+li {
+  list-style-type: square;
+}
+
+li:hover, a:hover {
+  color: green;
+  font-size: 30px;
+  transition: 0.1s;
 }

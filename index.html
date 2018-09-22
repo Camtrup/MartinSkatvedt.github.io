@@ -10,27 +10,20 @@
   <body>
     <h1> Martin Skatvedt </h1>
 
-    <p> I am very professional webdesigner </p>
+    <p> Liste med ulike prosjekter </p>
     <div id="list">
       <ul>
-        <li> <a href="/Eksamen"> Eksamen IT2</a> </li>
-        <li> <a href="/Pong"> Pong</a> </li>
-        <li> <a href="/23.8.18"> Fetch dag</a> </li>
-        <li> <a href="/30.8.18"> lekse 30.8.18</a> </li>
-        <li> <a href="/Kalkulator"> Kalkulator</a> </li>
-        <li> <a href="/FargeText"> Bytt farge</a> </li>
-        <li> <a href="/endreStyle"> Endre Styling</a> </li>
-        <li> <a href="/followBox"> Boks følger etter mus</a> </li>
-        <li> <a href="/adjHis"> Adjektiv Historie</a> </li>
-        <li> <a href="/13.9.18"> 13.9.18</a> </li>
-        <li> <a href="/resize"> Resize</a> </li>
-
+        <li> <a href="/Eksamen" class="liste"> Eksamen IT2</a> </li>
+        <li> <a href="/Pong" class="liste"> Pong</a> </li>
+        <li> <a href="/endreStyle" class="liste"> Endre Styling</a> </li>
+        <li> <a href="/followBox" class="liste"> Boks følger etter mus</a> </li>
       </ul>
     </div>
 
     <script>
       let audio = new Audio('nyan.mp3');
-      audio.play();
+      window.onmouseover = () => audio.play();
+
     </script>
 
   </body>
