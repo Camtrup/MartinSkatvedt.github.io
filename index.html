@@ -1,30 +1,105 @@
 <!DOCTYPE html>
 
-
 <html>
+
   <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <style>
+
+      h1, p, a, div{
+        color: white;
+        font-family: "Comic Sans MS";
+        text-decoration: none;
+      }
+
+      body {
+        background-image: url("https://i.giphy.com/media/sIIhZliB2McAo/giphy.webp");
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+      }
+
+      #list {
+        display: inline-block;
+      }
+
+      li {
+        list-style-type: square;
+      }
+
+      li:hover, a:hover {
+        color: green;
+        
+        transition: 0.1s;
+      }
+
+      #input {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+      }
+
+      #button {
+        position: absolute;
+        top: 10px;
+        left: 150px;
+      }
+
+      #output {
+        position: absolute;
+        top: 40px;
+        left: 10px;
+        color: white;
+        font-family: "Comic Sans MS";
+      }
+    </style>
+
     <title> Martin Skatvedt </title>
+
   </head>
 
   <body>
-    <h1> Martin Skatvedt </h1>
 
+    <h1> Martin Skatvedt </h1>
+    <input type="text" placeholder="Skriv inn kommandoer" id="input">
+    <button type="button" id="button"> Sumbit</button>
+    <span id="output"> </span>
     <p> Liste med ulike prosjekter </p>
+
     <div id="list">
       <ul>
-        <li> <a href="/Eksamen" class="liste"> Eksamen IT2</a> </li>
-        <li> <a href="/Pong" class="liste"> Pong</a> </li>
-        <li> <a href="/endreStyle" class="liste"> Endre Styling</a> </li>
-        <li> <a href="/followBox" class="liste"> Boks følger etter mus</a> </li>
+        <li> <a href="/Eksamen"> Eksamen IT2</a> </li>
+        <li> <a href="/Pong"> Pong</a> </li>
+        <li> <a href="/endreStyle"> Endre Styling</a> </li>
+        <li> <a href="/followBox"> Boks følger etter mus</a> </li>
       </ul>
     </div>
 
     <script>
+
       let audio = new Audio('nyan.mp3');
+      const text = document.getElementById("input");
+      const btn = document.getElementById("button");
+      const out = document.getElementById("output");
+
       window.onmouseover = () => audio.play();
+      btn.onclick = () => scriptParser(text.value);
+      text.onmouseover = () => out.innerHTML = "Help";
+      text.onmouseout = () => out.innerText = "";
+
+      function scriptParser(word) {
+        let command = String(word.toLowerCase());
+        switch (command) {
+
+          default:
+            out.innerHTML = "Ugyldig";
+            break;
+        }
+      }
+
 
     </script>
 
   </body>
+
 </html>
