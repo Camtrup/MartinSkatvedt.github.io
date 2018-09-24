@@ -85,7 +85,7 @@
       window.onmouseover = () => audio.play();
       btn.onclick = () => scriptParser(text.value);
       text.onmouseover = () => out.innerHTML = "Help";
-      text.onmouseout = () => out.innerText = "Hei :)";
+      text.onmouseout = () => out.innerText = "";
 
       function scriptParser(word) {
         let command = String(word.toLowerCase());
