@@ -32,6 +32,24 @@
         top: 100px;
       }
 
+      #info:hover, #apning:hover, #pris:hover {
+        width: 60px;
+        transition: 0.4s;
+      }
+
+
+       #ikoner:hover ~ #popup  {
+        position: absolute;
+        left: 550px;
+        color: black;
+        background-color: white;
+      }
+      #popup {
+        width: 0px;
+        height: 0px;
+
+      }
+
     </style>
   </head>
   <body>
@@ -46,12 +64,14 @@
       <img src="./bilder/priser.jpg" width="50" id="pris"/>
       <img src="./bilder/aapningstider.jpg" width="50" id="apning"/>
     </div>
+
     <div id="popup">
       <h1 id="popupTitle"></h1>
       <p id="p1"> </p>
       <p id="p2"> </p>
       <p id="p3"> </p>
     </div>
+
     <img src="./bilder/1.jpg" id="bakgrunn"/>
     <br>
     <div id="knapper">
@@ -73,27 +93,6 @@
       const p3 = document.getElementById("p3");
       const bilder = ["./bilder/1.jpg", "./bilder/2.jpg", "./bilder/3.jpg", "./bilder/4.jpg"]
       let index = 1;
-
-      let tap = "Tirsdag – søndag 11.00-16.00"
-
-      info.onmouseover = () => {
-        setpop("info");
-      }
-      pris.onmouseover = () => {
-        setpop("pris")
-      }
-      apning.onmouseover = () => {
-        setpop("apning")
-      }
-      info.onmouseout = () => {
-        removePop();
-      }
-      pris.onmouseout = () => {
-        removePop();
-      }
-      apning.onmouseout = () => {
-        removePop();
-      }
 
       hoyre.onclick = () => {
         if (index < 3) {
@@ -119,13 +118,13 @@
         }
       }
 
-      function setpop(ikon) {
-        popup.style.width = "400px";
-        popup.style.height = "100px";
-        popup.style.backgroundColor = "white";
-        popup.style.left = (window.innerWidth/2 - 200) + "px";
-        popup.style.top = 60 + "px";
 
+
+      info.onmouseover = () => setpop("info");
+      pris.onmouseover = () => setpop("pris");
+      apning.onmouseover = () => setpop("apning");
+
+      function setpop(ikon) {
         switch (ikon) {
           case "pris":
             popup.style.height = "200px";
@@ -147,21 +146,10 @@
             p1.innerText = "Besøksadresse: Lade allé 60, 7041 Trondheim 73 87 02 80 post@ringve.no";
             p2.innerText = "Postadresse: Postboks 6289 Torgarden, 7489 Trondheim";
             break;
-
           default:
             break;
         }
       }
-
-      function removePop() {
-        popup.style.width = "0px";
-        popup.style.height = "0px";
-        h1.innerText = ""
-        p1.innerText = ""
-        p2.innerText = ""
-        p3.innerText = ""
-      }
-
 
     </script>
   </body>
