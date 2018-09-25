@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quick Sort</title>
+    <style>
+      #canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+
+    <canvas id="canvas" width="600" height="300"></canvas>
+    <script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    const res = 5;
+    let width = canvas.width, height = canvas.height;
+
+    let array = [];
+    for (let k = 0; k < width / res; k++) {
+      array.push(Math.floor(Math.random() * height + 2));
+
+    }
+    
+    for (let j = 0; j < array.length; j++) {
+      ctx.fillStyle = "black";
+      ctx.fillRect(j * res + 5, height, 2, array[j]*-1);
+    }
+
+
+
+    let result = quickSort(array, 0, array.length - 1);
+    //console.log(result);
+
+    function quickSort(items, left, right) {
+      var index;
+      if (items.length > 1) {
+        index = partition(items, left, right);
+        if (left < index - 1) {
+            quickSort(items, left, index - 1);
+
+        }
+        if (index < right) {
+            quickSort(items, index, right);
+
+
+        }
+      }
+
+      return items;
+    }
+
+    function partition(items, left, right) {
+      var pivot   = items[Math.floor((right + left) / 2)], i = left, j = right;
+          while (i <= j) {
+            while (items[i] < pivot) {
+              i++;
+            }
+            while (items[j] > pivot) {
+              j--;
+            }
+            if (i <= j) {
+              swap(items, i, j);
+              i++;
+              j--;
+            }
+          }
+          return i;
+        }
+
+    function swap(items, firstIndex, secondIndex){
+      var temp = items[firstIndex];
+      items[firstIndex] = items[secondIndex];
+      items[secondIndex] = temp;
+    }
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Elisabeth </title>
+
+    <style>
+      .buttonDiv {
+        text-align: center;
+        border: 1px solid black;
+        
+      }
+      h2 {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="buttonDiv">
+      <button type="button" id="button"> Trykk her!</button>
+      <h2 id="output"></h2>
+      <img src="" id="pic" width="300"/>
+    </div>
+
+
+
+    <script>
+      const btn = document.getElementById("button");
+      const h2 = document.getElementById("output");
+      const img = document.getElementById("pic");
+
+      btn.onclick = () =>  {
+        h2.innerText = "Jeg elsker deg";
+        pic.src = "/bilde1.jpg";
+      }
+
+    </script>
+  </body>
+</html>

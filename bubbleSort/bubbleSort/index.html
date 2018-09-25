@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bubble Sort</title>
+
+    <style >
+      .canvasContainer {
+        width: 600px;
+        text-align: center;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="canvasContainer">
+      <canvas id="canvas" width="600" height="300"></canvas>
+    </div>
+
+    <script>
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+      const res = 4;
+      let width = canvas.width, height = canvas.height;
+      let inter;
+      let numbers1 = [], numbers2 = [], buf;
+      let lineX = 0, index = 0, upperIndex = width / res;
+      createList();
+
+      function createList() {
+        for (let i = 0; i < (width / res); i++) {
+          numbers1[i] = Math.floor((Math.random() * height) + 10);
+        }
+
+        numbers2 = numbers1;
+        draw2();
+
+        inter = window.setInterval(draw, 0.1);
+
+      }
+
+      function draw() {
+        //checks index borders
+        if (index > upperIndex) {
+          index = 0;
+        }
+        //Bubble sort algorthim
+        if (numbers2[index] >= numbers2[index + 1]) {
+          buf = numbers2[index + 1];
+          numbers2[index+1] = numbers2[index];
+          numbers2[index] = buf;
+        }
+        index += 1; //increases index
+
+        if (index === upperIndex) {
+          numbers = numbers2;
+          upperIndex -= 1;
+          draw2();
+
+          if(upperIndex === 0) {
+            clearInterval(inter);
+          }
+        }
+      }
+
+      function draw2() {
+        //Canvas clear
+        ctx.fillStyle = "white";
+        ctx.fillRect(0, 0, width, height);
+
+        //draw the values
+        for (let i = 0; i < numbers1.length; i++) {
+          if(i === upperIndex) {
+            ctx.fillStyle = "green";
+          }
+          else {
+            ctx.fillStyle = "black";
+          }
+
+          ctx.fillRect((i * res) + 2, height + 10 , 1, numbers1[i]*-1);
+        }
+      }
+
+    </script>
+  </body>
+</html>
