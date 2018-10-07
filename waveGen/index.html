@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Wave Generator</title>
+  </head>
+  <body>
+    <div>
+      <ul>
+        <li><input type="range"   value="50"    min="-200"    max="200"                 id="a">         <span id="AmpOut">Amplitude</span></li>
+        <li><input type="range"   value="50"    min="10"      max="300"                 id="periode">   <span id="PeriodeOut">Periode</span></li>
+        <li><input type="range"   value="0"     min="-300"    max="300"                 id="likevekt">  <span id="dOut">Likevektslinje</span></li>
+        <li><input type="range"   value="50"    min="5"       max="100"     step="1"    id="resIn">     <span id="resOut">Resolution</span></li>
+      </ul>
+    </div>
+    <br>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+    <script>
+
+    const a           = document.getElementById("a");
+    const aOut        = document.getElementById(("AmpOut"));
+    const periode     = document.getElementById("periode");
+    const pOut        = document.getElementById("PeriodeOut");
+    const likevekt    = document.getElementById("likevekt");
+    const dOut        = document.getElementById("dOut");
+    const resIn       = document.getElementById("resIn");
+    const resOut      = document.getElementById("resOut");
+
+    let res = 100;
+    let cols, rows;
+
+    function sine(a, periode, x, forskyving, d) {
+      let c       = ((Math.PI * 2)/ periode);
+      let omega   = ((forskyving * c) * -1);
+      let result  = ((a * Math.sin(c * x + omega)) - d);
+      return result;
+    }
+
+    function setup(){
+      createCanvas(600, 600);
+      background(0);
+      stroke(255);
+      noFill();
+      cols = Math.floor(width/res);
+      rows = Math.floor(height/res);
+    }
+
+    function draw(){
+      background(0);
+      let amp    = Number(a.value);
+      let period = Number(periode.value);
+      let d      = Number(likevekt.value);
+
+      if (width % resIn.value == 0) {
+        res  = Number(resIn.value);
+        cols = Math.floor(width/res);
+        rows = Math.floor(height/res);
+      }
+
+      aOut.innerText    = `Amplituden = ${amp}`;
+      pOut.innerText    = `Perioden = ${period}`;
+      dOut.innerText    = `Likevektslinjen = ${d}`;
+      resOut.innerText  = `Hver rute er ${res} pixler`;
+
+      strokeWeight(1);
+      line(0, height/2, width, height/2);
+
+      strokeWeight(0.5);
+      for (let c = 0; c < cols; c++) {
+        for (let r = 0; r < rows; r++) {
+          rect(c * res, r * res, res - 1, res - 1);
+        }
+      }
+
+      strokeWeight(3);
+      beginShape();
+      for (let i = 0; i < width; i ++) {
+        vertex(i, sine(amp, period, i, 0, d) + height/2);
+      }
+      endShape();
+    }
+
+    </script>
+  </body>
+</html>
