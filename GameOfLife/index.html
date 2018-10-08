@@ -7,11 +7,24 @@
 
     <button type="button" id="startBtn">Click to start</button>
     <button type="button" id="pauseBtn">Click to pause</button>
-    <input type="range" value="10" min="5" max="100" id="slider">
-    <span> <-- change fps</span>
-    <div id="state">Game Paused, you can now draw</div>
-    <span id="fpsOut"></span>
+    <span id="state">Game Paused, you can now draw</span>
     <br>
+    <input type="range" value="10" min="5" max="100" id="slider">
+    <img src="./bilder/speed.jpg" width="20" alt="change fps">
+    <span id="fpsOut"></span>
+
+    <select id="chooseMap">
+      <option>Clear</option>
+      <option>Glider</option>
+      <option>10</option>
+      <option>Glider Gun</option>
+
+    </select>
+
+    </select>
+    </form>
+    <br>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
     <script>
       const startBtn = document.getElementById("startBtn");
@@ -19,13 +32,104 @@
       const state    = document.getElementById("state");
       const slider   = document.getElementById("slider");
       const fpsOut   = document.getElementById("fpsOut");
+      const chooseMap= document.getElementById("chooseMap");
 
-      const res = 10;
+      let res = 10;
       let cols, rows;
       let grid, nextGrid, naboGrid;
       let gameStart = false;
       let fps = 10;
 
+      function Clear() {
+        for (let i = 0; i < cols; i++) {
+          for (let j = 0; j < rows; j++) {
+            grid[i][j] = 0;
+            nextGrid[i][j] = 0;
+          }
+        }
+      }
+
+      function glider() {
+        Clear();
+        grid[19][19] = 1;
+        grid[20][20] = 1;
+        grid[20][21] = 1;
+        grid[21][20] = 1;
+        grid[21][19] = 1;
+      }
+
+      function tenLine() {
+        Clear();
+        for (let i = 20; i < 30; i++) {
+          grid[i][20] = 1;
+        }
+      }
+
+      function gliderGun() {
+        Clear();
+        let array =
+        [
+        [0,0,0,0,0,0,0,1,1,0,0,0,0],
+        [0,0,0,0,0,0,0,1,1,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,1,1,1,0,0,0],
+        [0,0,0,0,0,0,1,0,0,0,1,0,0],
+        [0,0,0,0,0,1,0,0,0,0,0,1,0],
+        [0,0,0,0,0,1,0,0,0,0,0,1,0],
+        [0,0,0,0,0,0,0,0,1,0,0,0,0],
+        [0,0,0,0,0,0,1,0,0,0,1,0,0],
+        [0,0,0,0,0,0,0,1,1,1,0,0,0],
+        [0,0,0,0,0,0,0,0,1,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,1,1,1,0,0,0,0,0],
+        [0,0,0,0,0,1,1,1,0,0,0,0,0],
+        [0,0,0,0,1,0,0,0,1,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,1,1,0,0,0,1,1,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,1,1,0,0,0,0,0,0],
+        [0,0,0,0,0,1,1,0,0,0,0,0,0]];
+
+        for (let i = 0; i < array.length; i++) {
+          grid[10 + i] = array[i];
+        }
+      }
+
+      chooseMap.onchange = () => {
+        switch (chooseMap.value) {
+          case "Clear":
+            Clear();
+            break;
+          case "Glider":
+            glider();
+            break;
+          case "10":
+            tenLine();
+            break;
+          case "Glider Gun":
+            gliderGun();
+            break;
+          default:
+            break;
+        }
+        display();
+      }
       slider.onchange = () => {
         fps = Number(slider.value);
         console.log(fps);
@@ -142,6 +246,7 @@
         grid      = createGrid(cols, rows);
         nextGrid  = createGrid(cols, rows);
         naboGrid  = createGrid(cols, rows);
+        console.log(grid.length);
 
         stroke(255);
         strokeWeight(0.5);
@@ -162,7 +267,6 @@
 
       function display() {
         background(0);
-        nextFrame();
         for (let i = 0; i < cols; i++) {
           for (let j = 0; j < rows; j++) {
             if (grid[i][j]) {
@@ -178,6 +282,7 @@
 
       function draw() {
         if (gameStart) {
+          nextFrame();
           display();
         }
       }
