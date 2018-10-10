@@ -77,7 +77,9 @@ function ballBorder() {
 
   if ((ball.x > spiller.x) && (ball.x < spiller.x + spiller.w)) {
     if (ball.y + ball.r > spiller.y) {
+      ball.y -= 10;
       ball.ySpeed *= -1;
+      calcSpeed(ball.xSpeed, ball.ySpeed);
     }
   }
 }
@@ -153,6 +155,15 @@ function delyItem(i) {
   matArr[i] = buf;
   matArr.pop();
 }
+
+function calcSpeed(xS, yS) {
+  let s = Math.sqrt(Math.pow(xS, 2) + Math.pow(yS, 2));
+  let sin = (yS / s);
+  let cos = (xS / s);
+
+  console.log(s, sin, cos);
+}
+
 
 function draw() {
   ctx.fillStyle = "black";
