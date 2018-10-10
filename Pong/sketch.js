@@ -1,15 +1,23 @@
-let canvas = document.getElementById("canvas");
-const div = document.getElementById("canvasDiv");
-let ctx = canvas.getContext("2d");
-let width = canvas.width, height = canvas.height;
-let now, delta, fps = 144, then = Date.now(), interval = 1000/fps;
-let mousePos;
-let matArr = [], antall = 11;
+const canvas  = document.getElementById("canvas");
+const div     = document.getElementById("canvasDiv");
+const ctx     = canvas.getContext("2d");
 
-for (let i = 0; i < antall; i++) {
-  matArr.push(0);
-}
+let width  = canvas.width,
+    height = canvas.height;
 
+let now,
+    delta,
+    fps       = 144,
+    then      = Date.now(),
+    interval  = 1000/fps;
+
+let mousePos,
+    buf;
+
+let matArr = [],
+    antall = 11;
+
+//Ball config
 let ball = {
   r: 10,
   xSpeed: 5,
@@ -18,6 +26,7 @@ let ball = {
   y: height/2
 }
 
+//Spiller config
 let spiller = {
   w: 70,
   h: 20,
@@ -25,6 +34,7 @@ let spiller = {
   y: height - 20
 }
 
+//Mat klasse
 function mat(x, y) {
   this.w = 50;
   this.h = 20;
@@ -32,6 +42,7 @@ function mat(x, y) {
   this.y = y;
 }
 
+//Mus funksjon
 document.onmousemove = (k) => {
   let rect = canvas.getBoundingClientRect();
   mousePos = k.clientX - (rect.left + 35);
@@ -44,14 +55,15 @@ document.onmousemove = (k) => {
   else if (mousePos >= 630) {
     spiller.x = 630;
   }
-
 }
 
+//Tegner spiller
 function drawSpiller() {
   ctx.fillStyle = "white";
   ctx.fillRect(spiller.x, spiller.y, spiller.w, spiller.h);
 }
 
+//Sjekker kanter
 function ballBorder() {
   if (ball.x + ball.r >= width) {
     ball.xSpeed *= -1;
@@ -70,6 +82,7 @@ function ballBorder() {
   }
 }
 
+//Tegner ball
 function drawBall() {
     ctx.beginPath();
     ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI*2);
@@ -86,7 +99,7 @@ for (let i = 0; i < antall; i++) {
   matArr[i] = new mat(x, y);
   x += 60;
 }
-let buf;
+
 function drawMat() {
   x = 25, y = 10;
 
