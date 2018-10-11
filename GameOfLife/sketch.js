@@ -103,7 +103,6 @@ chooseMap.onchange = () => {
 }
 slider.onchange = () => {
   fps = Number(slider.value);
-  console.log(fps);
   fpsOut.innerText = `Game running at ${fps} fps`;
   frameRate(fps)
 }
@@ -212,12 +211,12 @@ function setup() {
   fpsOut.innerText = `Game running at ${fps} fps`
   cols = Math.floor(width/res);
   rows = Math.floor(height/res);
-  console.log(`Col = ${cols} og Rows = ${rows}`);
+
 
   grid      = createGrid(cols, rows);
   nextGrid  = createGrid(cols, rows);
   naboGrid  = createGrid(cols, rows);
-  console.log(grid.length);
+
 
   stroke(255);
   strokeWeight(0.5);
