@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bildeserie</title>
+
+    <style>
+      #image {
+        width: 500px;
+        height: 500px;
+        transition: 2s;
+      }
+
+      .imageContainer {
+        text-align:center;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <div class="imageContainer">
+      <img id="image">
+      <br>
+      <button type="button" id="left"> <-- </button>
+      <button type="button" id="rand"> ?</button>
+      <button type="button" id="right"> --></button>
+    </div>
+
+
+  </body>
+
+  <script>
+    const imageList =
+    ["https://cdn.spacetelescope.org/archives/images/wallpaper2/heic1509a.jpg",
+    "https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/hs-2016-13-a-large_web.jpg?itok=z-fRZ7ww&fc=50,50",
+    "https://cdn.wccftech.com/wp-content/uploads/2016/09/spacee.jpg"
+    ];
+
+    const image = document.getElementById("image");
+    const left  = document.getElementById("left");
+    const rand  = document.getElementById("rand");
+    const right = document.getElementById("right");
+
+    index = 0;
+    image.src = imageList[index];
+
+    left.onclick = () => {
+      if (index !== 0) image.src = imageList[index -= 1];
+      else {
+        index = imageList.length;
+        image.src = imageList[index -= 1]
+      }
+    }
+
+    right.onclick = () => {
+      if (index + 1 < imageList.length) image.src = imageList[index += 1];
+      else {
+        index = 0;
+        image.src = imageList[index];
+      }
+    }
+
+    rand.onclick = () => {
+      index = Math.floor(Math.random() * imageList.length);
+      image.src = imageList[index];
+    }
+
+  </script>
+</html>
