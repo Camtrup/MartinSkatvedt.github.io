@@ -15,12 +15,14 @@ class matrix {
   add(n) {
     if (this.cols != n.cols && this.rows != n.rows) return undefined;
     else {
+      let result = new matrix(this.rows, n.cols);
       if (n instanceof matrix) {
         for (let i = 0; i < this.rows; i++) {
           for (let j = 0; j < this.cols; j++) {
-            this.matrix[i][j] += n.matrix[i][j];
+            result.matrix[i][j] += n.matrix[i][j];
           }
         }
+        return result;
       }
       else {
         for (let i = 0; i < this.rows; i++) {
@@ -56,10 +58,12 @@ class matrix {
     }
   }
 
-  random() {
+  random(n, l) {
+    if (n == undefined) n = 1;
+    if (l == undefined) l = 0;
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.cols; j++) {
-        this.matrix[i][j] = Math.floor(Math.random() * 10);
+        this.matrix[i][j] = (Math.random() * n) + l;
       }
     }
   }

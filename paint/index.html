@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Paint</title>
+    <style>
+
+      canvas {
+        border: 1px black solid;
+      }
+    </style>
+
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td><input type="color" id="colorSelector"></td>
+        <td id="colorSelectorOut"> 0x000000</td>
+      </tr>
+      <tr>
+        <td><input type="range" id="rSlider" min="5" max="50" value="30"></td>
+        <td id="rSliderOut">30px</td>
+      </tr>
+    </table>
+
+    <canvas id="canvas" width="800" height="400"></canvas>
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
+    
+    <script src="./paint.js"></script>
+  </body>
+</html>
