@@ -27,7 +27,9 @@
         transition: 0.1s;
       }
 
-
+      video {
+        transform: rotate(90deg);
+      }
 
     </style>
     <title> Martin Skatvedt </title>
@@ -36,6 +38,8 @@
 
     <h1> Martin Skatvedt </h1>
 
+
+    </video>
 
     <table>
       <tr>
@@ -48,10 +52,7 @@
             <ul>
               <li> <a href="https://martinskatvedt.github.io/Nettforum/">Chat</a> </li>
               <li> <a href="https://martinskatvedt.github.io/Chess.js/">Chess</a> </li>
-              <li> <a href="/Eksamen"> Eksamen IT2</a> </li>
               <li> <a href="/Pong"> Pong</a> </li>
-              <li> <a href="/endreStyle"> Endre Styling</a> </li>
-              <li> <a href="/followBox"> Boks følger etter mus</a> </li>
               <li> <a href="/waveGen"> Sine Wave Generator</a> </li>
               <li> <a href="/GameOfLife"> Game Of Life</a> </li>
               <li> <a href="/bubbleSort/bubbleSort">Bubblesort</a> </li>
@@ -63,19 +64,39 @@
         <td>
           <div id="8bit">
             <ul>
-              <li>Clock</li>
-              <li>A+B register</li>
-              <li>Arimetrisk</li>
+              <li id="CL">Control Logic</li>
+              <li> <a href="https://www.youtube.com/watch?v=I6abpNMV6K4&feature=youtu.be"> Running A Program</a> </li>
             </ul>
           </div>
         </td>
       </tr>
     </table>
 
-
-
-
+      <div id="outputBox" width="200">
+        <img src="" id="outIMG" width="400">
+        <p id="outP"></p>
+      </div>
     <script>
+      const CL     = document.getElementById("CL");
+      const outPut = document.getElementById("outputBox");
+      const outIMG = document.getElementById("outIMG");
+      const outP   = document.getElementById("outP");
+
+      CL.onmouseover = () => setBox("CL");
+      CL.onmouseleave = () => setBox("");
+      function setBox(listItem) {
+        switch (listItem) {
+          case "CL":
+          outIMG.src = "./Media/CL.png"
+          outP.innerText = "This is the Control Logic";
+            break;
+
+          default:
+            outIMG.src = "";
+            outP.innerText = "";
+            break;
+        }
+      }
 
     </script>
 
