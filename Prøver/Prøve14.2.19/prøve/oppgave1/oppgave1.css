@@ -1,0 +1,34 @@
+.animasjonsObjekt {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  transition: 1s;
+}
+
+#div1 {
+  background-color: red;
+  transform-origin: bottom right;
+}
+#div1:hover {
+  transform: rotate(90deg);
+}
+
+#div2 {
+  transform-origin: center;
+  background-color: blue;
+}
+#div2:hover {
+  transform: rotate(60deg);
+}
+
+#div3 {
+  background-color: orange;
+}
+#div3:hover {
+  transform: scale(2,2);
+}
+
+#div4 {
+  background-color: yellow;
+  position: absolute;
+}

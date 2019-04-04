@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 1</title>
+    <link rel="stylesheet" href="./oppgave1.css">
+  </head>
+  <body>
+    <div class="containerDiv">
+      <div id="div1" class="animasjonsObjekt">DIV1</div>
+      <div id="div2" class="animasjonsObjekt">DIV2</div>
+      <div id="div3" class="animasjonsObjekt">DIV3</div>
+      <div id="div4" class="animasjonsObjekt">DIV4</div>
+    </div>
+
+    <script type="text/javascript">
+      let div4 = document.getElementById("div4");
+      div4.onmouseover = () => div4.animate([{left:"0%"},{left:"100%"}], 1000);
+    </script>
+  </body>
+</html>

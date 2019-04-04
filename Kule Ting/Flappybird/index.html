@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Flappybird</title>
+    <style media="screen">
+      body {
+        text-align: center;
+      }
+      .highscores {
+        position: absolute;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Flappystalin</h1>
+    <h4>Trykk på space for å starte</h4>
+    <input type="text" placeholder="Navn" id="name">
+    <button type="button"id="pushButton">Send highscore</button>
+
+    <div class="highscores">
+      <table>
+        <tr>
+          <th>Rank</th>
+          <th>Navn</th>
+          <th>Score</th>
+        </tr>
+        <tr>
+          <td>1.</td>
+          <td class="rankNames"></td>
+          <td class="rankScore"></td>
+        </tr>
+        <tr>
+          <td>2.</td>
+          <td class="rankNames"></td>
+          <td class="rankScore"></td>
+        </tr>
+        <tr>
+          <td>3.</td>
+          <td class="rankNames"></td>
+          <td class="rankScore"></td>
+        </tr>
+        <tr>
+          <td>4.</td>
+          <td class="rankNames"></td>
+          <td class="rankScore"></td>
+        </tr>
+        <tr>
+          <td>5.</td>
+          <td class="rankNames"></td>
+          <td class="rankScore"></td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
+    <!-- https://p5js.org/ -->
+    <script src="./libs/p5.collide2d.min.js" charset="utf-8"></script>
+    <!-- https://github.com/bmoren/p5.collide2D -->
+    <script src="./classes/pipe.js" charset="utf-8"></script>
+    <script src="./classes/bird.js" charset="utf-8"></script>
+    <script src="./main.js" charset="utf-8"></script>
+  </body>
+</html>
