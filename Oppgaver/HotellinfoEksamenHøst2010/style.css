@@ -1,0 +1,26 @@
+#hotelBilde {
+  width: 400px;
+  height: 300px;
+}
+
+#tempout, th, tr, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.container {
+  display:flex;
+  text-align: left;
+}
+.element {
+  margin: 10px;
+}
+.temp {
+  height: 50px;
+  width: 100px;
+  background-color: lightblue;
+  margin: 2px;
+  transition: 1s;
+}
+#tempContainer {
+  display: flex;
+}
