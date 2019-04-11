@@ -1,0 +1,6 @@
+1. Hent inn inputs
+2. For input of inputs
+3. Sjekk watt produsert i current input, legge det til i en variabel (husk å gange for de 6 fire timene)
+4. Skriv ut på siden info som trengs
+5. Neste input i inputs
+6. Skrive ut total produsert watt

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 3</title>
+    <style media="screen">
+      #inputTable, tr, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align:center;
+      }
+      body {
+        background-color: lightgrey;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mainContainer">
+    <table id="inputTable">
+      <tr><th>Tid</th><th>Vindstyrke</th><th>Watt/Time</th><th>Type</th></tr>
+      <tr>
+        <td>Kl 02:00 - 08:00</td>
+        <td><input type="number" class="inputValues" placeholder="styrke i m/s"></td>
+        <td class="outputs"></td>
+        <td class="type"></td>
+      </tr>
+      <tr>
+        <td>Kl 08:00 - 14:00</td>
+        <td><input type="number" class="inputValues" placeholder="styrke i m/s"></td>
+        <td class="outputs"></td>
+        <td class="type"></td>
+      </tr>
+      <tr>
+        <td>Kl 14:00 - 20:00</td>
+        <td><input type="number" class="inputValues" placeholder="styrke i m/s"></td>
+        <td class="outputs"></td>
+        <td class="type"></td>
+      </tr>
+      <tr>
+        <td>Kl 20:00 - 02:00</td>
+        <td><input type="number" class="inputValues" placeholder="styrke i m/s"></td>
+        <td class="outputs"></td>
+        <td class="type"></td>
+      </tr>
+      <tr>
+        <td>Total:</td>
+        <td id="totSpeed"></td>
+        <td id="totWatt"></td>
+        <td></td>
+      </tr>
+    </table>
+    </div>
+    <script src="./script.js" charset="utf-8"></script>
+  </body>
+</html>

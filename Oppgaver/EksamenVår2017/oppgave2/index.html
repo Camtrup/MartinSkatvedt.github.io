@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 2</title>
+    <style media="screen">
+      #mainContainer {
+        text-align: center;
+      }
+      body {
+        background-color: lightgrey;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mainContainer">
+      <h1>Vindstyrke(m/s) til watt i timen</h1>
+      <p>Denne applikasjonen gir deg hvor mange watt i timen en vindmølle produserer basert på vindstyrken
+      <br>Av sikkerhetsgrunner stopper vindmøllen å produsere på styrker over 15m/s. Den starter heller ikke før 2.5m/s</p>
+      <input type="number" id="inputNumber" placeholder="Styrke i m/s">
+      <button type="button" id="sjekkButton" >Sjekk</button>
+      <p id="output"></p>
+    </div>
+    <script src="./script.js" charset="utf-8"></script>
+  </body>
+</html>
