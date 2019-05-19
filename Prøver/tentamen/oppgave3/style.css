@@ -1,0 +1,24 @@
+
+#loginContainer {
+  border: 1px solid grey;
+  border-radius: 4px;
+  padding: 5px;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+h1 {
+  text-align: center;
+}
+body {
+  background-color: lightBlue;
+}
+
+th, tr, td, #stemmeTable button {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+td, th {
+  width: 20%;
+}

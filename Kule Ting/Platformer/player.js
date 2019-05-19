@@ -11,7 +11,10 @@ class Player {
     this.gravity = 0.15;
     this.dir = 1;
     this.maxHeight = 265;
+    this.nBullets = 30;
+    this.bullets = [];
   }
+
   show() {
     fill(255);
     rect(this.x,this.y,this.w,this.h);
@@ -40,4 +43,10 @@ class Player {
     }
     if (keyIsDown(UP_ARROW)) this.jump();
   }
+
+  shoot(bullet) {
+    this.bullets.push(bullet);
+    player.nBullets--;
+  }
+
 }

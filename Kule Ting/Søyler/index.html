@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Søylediagram</title>
+    <style media="screen">
+      .diagram {
+        style: flex;
+        flex-direction: row;
+        transition: 1s;
+      }
+      .diagram div {
+        transition: 1s;
+        border: 1px solid black;
+        margin-left: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label for="fargeInput">Farge</label>
+      <input type="text" id="fargeInput" value="red">
+
+      <label for="verdiInput">Verdi</label>
+      <input type="number" id="verdiInput"value="200">
+      <button type="button" id="submit">Ny søyle</button>
+    </form>
+
+    <div id=diagram1></div>
+    <script src="./script.js" charset="utf-8"></script>
+
+  </body>
+</html>

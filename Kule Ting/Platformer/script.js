@@ -1,6 +1,5 @@
 
 let player;
-let bullets = [];
 let groundLayer;
 
 function setup() {
@@ -13,22 +12,24 @@ function setup() {
 function draw() {
   clear();
   background(0);
+
   player.update();
   player.show();
 
+  text(player.nBullets, 10, 20);
   fill(100);
   rect(0, groundLayer, width, height);
 
-  for (i of bullets) {
-    i.update();
-    i.show();
+  for (bullet of player.bullets) {
+    bullet.update();
+    bullet.show();
   }
 }
 
 function keyPressed() {
   switch (keyCode) {
     case 32:
-      bullets.push(new Bullet(player.x, player.y, player.dir));
+    if (player.nBullets > 0) player.shoot(new Bullet(player.x, player.y, player.dir))
       break;
     default:
       break;
